@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============ SEO DE BASE ============ -->
+  <title>NIVAQUINE – Digital Solutions | La donnée au service de la décision</title>
+  <meta name="description" content="NIVAQUINE est un cabinet de conseil en gestion de l'information, géomatique (SIG), analyse de données et transformation numérique. Côte d'Ivoire, Afrique de l'Ouest et international.">
+  <meta name="keywords" content="NIVAQUINE, conseil, gestion de l'information, SIG, géomatique, analyse de données, transformation numérique, Abidjan, Côte d'Ivoire">
+  <meta name="author" content="NIVAQUINE – Digital Solutions">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.nivaquine.com/">
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="NIVAQUINE – Digital Solutions">
+  <meta property="og:title" content="NIVAQUINE – La donnée au service de la décision">
+  <meta property="og:description" content="Conseil en gestion de l'information, géomatique, analyse de données et transformation numérique.">
+  <!-- Ajouter une image de partage : <meta property="og:image" content="pics/page_garde.jpg"> -->
+  <meta name="theme-color" content="#079A45">
+
+  <!-- Favicon (sigle NIVAQUINE) -->
+  <link rel="icon" type="image/png" href="pics/sigle_noir.png">
+
+  <!-- Polices : Inter (texte) + Sora (titres) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (CDN) + configuration des couleurs NIVAQUINE -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nq: {
+              green: '#079A45',
+              blue:  '#1173B9',
+              ink:   '#111820',
+              mist:  '#F4F6F5'
+            }
+          },
+          fontFamily: {
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Sora', 'Inter', 'sans-serif']
+          },
+          maxWidth: { container: '72rem' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Feuille de style personnalisée -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Active les animations d'apparition (repli propre si le JS est désactivé) -->
+  <script>document.documentElement.classList.add('js');</script>
+  <noscript>
+    <style>
+      /* Sans JavaScript : menu mobile visible en permanence, aucun repli à prévoir */
+      #mobile-menu { display: block !important; }
+      #menu-toggle { display: none !important; }
+    </style>
+  </noscript>
+
+  <!-- Données structurées (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NIVAQUINE – Digital Solutions",
+    "slogan": "La donnée au service de la décision",
+    "description": "Cabinet de conseil en gestion de l'information, géomatique et systèmes d'information géographique, analyse de données et transformation numérique.",
+    "areaServed": ["Côte d'Ivoire", "Afrique de l'Ouest", "International"],
+    "email": "nivaquine@yahoo.com",
+    "telephone": "+225 01 05 40 03 71",
+    "address": { "@type": "PostalAddress", "postOfficeBoxNumber": "08 BP 2353", "addressLocality": "Abidjan", "addressCountry": "CI" }
+  }
+  </script>
+</head>
+
+<body class="bg-white font-sans text-nq-ink antialiased">
+
+  <!-- Lien d'évitement (accessibilité) -->
+  <a href="#accueil" class="skip-link" data-en="Skip to content">Aller au contenu</a>
+
+  <!-- =========================================================
+       EN-TÊTE / NAVIGATION
+  ========================================================== -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-transparent transition-all">
+    <div class="mx-auto max-w-container px-5 sm:px-8">
+
+      <div class="flex items-center justify-between h-20" id="header-inner">
+
+        <!-- Logo (version recadrée, mention DIGITAL SOLUTIONS incluse) -->
+        <a href="#accueil" class="flex items-center shrink-0" aria-label="NIVAQUINE – Digital Solutions, accueil">
+          <img src="pics/logo_nivaquine_noir_trim.png" alt="NIVAQUINE – Digital Solutions"
+               class="h-9 sm:h-11 w-auto" width="721" height="210">
+        </a>
+
+        <!-- Navigation bureau -->
+        <nav class="hidden lg:block" aria-label="Navigation principale">
+          <ul class="nav-list">
+            <li><a href="#accueil"   class="nav-link" data-en="Home">Accueil</a></li>
+            <li><a href="#a-propos"  class="nav-link" data-en="About">À propos</a></li>
+            <li><a href="#expertises" class="nav-link" data-en="Expertise">Expertises</a></li>
+            <li><a href="#solutions" class="nav-link" data-en="Solutions">Solutions</a></li>
+            <li><a href="#secteurs"  class="nav-link" data-en="Sectors">Secteurs</a></li>
+            <li><a href="#contact"   class="nav-link" data-en="Contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Bascule de langue FR / EN -->
+          <div class="lang-switch" role="group" aria-label="Choix de la langue / Language switch">
+            <button type="button" class="lang-btn is-active" data-lang="fr" aria-pressed="true">FR</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+
+          <a href="#contact" class="btn btn-primary header-cta" data-en="Let's talk">Parlons de votre projet</a>
+
+          <!-- Bouton menu mobile -->
+          <button type="button" id="menu-toggle" class="menu-toggle lg:hidden"
+                  aria-controls="mobile-menu" aria-expanded="false"
+                  aria-label="Ouvrir le menu" data-en-label="Open menu">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="mobile-menu lg:hidden" hidden>
+      <nav aria-label="Navigation mobile">
+        <ul class="mobile-nav-list">
+          <li><a href="#accueil"    data-en="Home">Accueil</a></li>
+          <li><a href="#a-propos"   data-en="About">À propos</a></li>
+          <li><a href="#expertises" data-en="Expertise">Expertises</a></li>
+          <li><a href="#solutions"  data-en="Solutions">Solutions</a></li>
+          <li><a href="#secteurs"   data-en="Sectors">Secteurs</a></li>
+          <li><a href="#contact"    data-en="Contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary w-full justify-center mt-6" data-en="Let's talk">Parlons de votre projet</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- =========================================================
+         1. ACCUEIL — Bannière
+    ========================================================== -->
+    <section id="accueil" class="hero">
+
+      <!-- Image de couverture : carte SIG du portail de la Commune de Niablé.
+           Pour changer de photo, modifier uniquement le chemin src. -->
+      <img src="pics/page_garde.jpg" alt="Carte d'occupation du sol du portail SIG de la Commune de Niablé"
+           class="hero-visual" width="952" height="513" fetchpriority="high">
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-container px-5 sm:px-8 w-full">
+        <div class="hero-content reveal">
+
+          <p class="hero-eyebrow" data-en="Consulting · Information management · GIS · Data · Digital">
+            Conseil · Gestion de l'information · SIG · Données · Numérique
+          </p>
+
+          <h1 class="hero-title" data-en="Let's turn data into decisions.">
+            Transformons la donnée en décisions.
+          </h1>
+
+          <p class="hero-lead"
+             data-en="NIVAQUINE supports organizations in Côte d'Ivoire, West Africa and internationally in structuring, analysing and valuing their information through reliable, sustainable digital solutions.">
+            NIVAQUINE accompagne les organisations en Côte d'Ivoire, en Afrique de l'Ouest et à l'international
+            pour structurer, analyser et valoriser leurs informations grâce à des solutions numériques durables.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="btn btn-primary btn-lg" data-en="Let's talk about your project">Parlons de votre projet</a>
+            <a href="#expertises" class="btn btn-ghost btn-lg" data-en="Discover our expertise">Découvrir nos expertises</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signature sous la bannière -->
+      <div class="hero-footer">
+        <div class="mx-auto max-w-container px-5 sm:px-8 flex items-center justify-between text-white/80 text-sm">
+          <span class="italic" data-en="Data at the service of decision-making">« La donnée au service de la décision »</span>
+          <a href="#a-propos" class="hidden sm:inline-flex items-center gap-2 hover:text-white transition"
+             data-en-label="Scroll to discover" aria-label="Faire défiler pour découvrir">
+            <span data-en="Scroll">Défiler</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. À PROPOS
+    ========================================================== -->
+    <section id="a-propos" class="section scroll-mt-24">
+      <div class="mx-auto max-w-container px-5 sm:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Visuel -->
+          <div class="reveal order-2 lg:order-1">
+            <div class="relative">
+              <!-- Visuel : indicateurs du Portail SIG de la Commune de Niablé (changer le src pour une autre image) -->
+              <div class="visual-card">
+                <img src="pics/indicateurs_Portail SIG de la Commune de Niablé-2.png"
+                     alt="Tableau de bord d'indicateurs du Portail SIG de la Commune de Niablé"
+                     class="w-full" width="510" height="277" loading="lazy">
+              </div>
+              <div class="visual-badge">
+                <p data-en="Côte d'Ivoire · West Africa · International">Côte d'Ivoire · Afrique de l'Ouest · International</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texte -->
+          <div class="reveal order-1 lg:order-2">
+            <p class="section-label" data-en="About us">À propos</p>
+            <h2 class="section-title" data-en="A partner for your information and digital challenges.">
+              Un partenaire au service de vos enjeux d'information et de numérique.
+            </h2>
+            <p class="section-text"
+               data-en="NIVAQUINE – Digital Solutions is a consulting firm specialized in information management, geographic information systems (GIS), data analysis and digital transformation. We help public, private and non-profit organizations make their data a reliable lever for steering and decision-making.">
+              NIVAQUINE – Digital Solutions est un cabinet de conseil spécialisé dans la gestion de l'information,
+              les systèmes d'information géographique (SIG), l'analyse de données et la transformation numérique.
+              Nous aidons les organisations publiques, privées et non lucratives à faire de leurs données un levier
+              fiable de pilotage et de décision.
+            </p>
+
+            <div class="mt-8 border-l-4 border-nq-green pl-5">
+              <p class="font-display font-bold text-lg mb-1" data-en="Our mission">Notre mission</p>
+              <p class="text-gray-600"
+                 data-en="To structure, analyze and enhance information so that every decision rests on reliable, accessible and well-stripped-back data.">
+                Structurer, analyser et valoriser l'information pour que chaque décision repose sur des données
+                fiables, accessibles et restituées avec clarté.
+              </p>
+            </div>
+
+            <!-- Approche en 3 points -->
+            <div class="mt-8 grid sm:grid-cols-3 gap-5">
+              <div class="approach-item">
+                <span class="approach-num">01</span>
+                <p class="font-semibold text-sm" data-en="Listen">Écouter</p>
+                <p class="text-gray-500 text-sm" data-en="Understand your context, your constraints and your objectives.">Comprendre votre contexte, vos contraintes et vos objectifs.</p>
+              </div>
+              <div class="approach-item">
+                <span class="approach-num">02</span>
+                <p class="font-semibold text-sm" data-en="Structure">Structurer</p>
+                <p class="text-gray-500 text-sm" data-en="Organize your information and build appropriate tools.">Organiser vos informations et construire des outils adaptés.</p>
+              </div>
+              <div class="approach-item">
+                <span class="approach-num">03</span>
+                <p class="font-semibold text-sm" data-en="Empower">Autonomiser</p>
+                <p class="text-gray-500 text-sm" data-en="Train your teams for lasting adoption.">Former vos équipes pour une adoption durable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. NOS EXPERTISES
+    ========================================================== -->
+    <section id="expertises" class="section section-muted scroll-mt-24">
+      <div class="mx-auto max-w-container px-5 sm:px-8">
+
+        <div class="max-w-3xl reveal">
+          <p class="section-label" data-en="Our expertise">Nos expertises</p>
+          <h2 class="section-title" data-en="Four domains of expertise at the service of your decisions.">
+            Quatre domaines d'expertise au service de vos décisions.
+          </h2>
+          <p class="section-text"
+             data-en="From structuring information to digital deployment, we cover the entire data value chain.">
+            De la structuration de l'information au déploiement numérique, nous couvrons toute la chaîne de valeur de la donnée.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+
+          <!-- Expertise 1 -->
+          <article class="card reveal">
+            <span class="card-icon bg-nq-green/10 text-nq-green" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+              </svg>
+            </span>
+            <h3 class="card-title" data-en="Information management">Gestion de l'information</h3>
+            <p class="card-text"
+               data-en="Organization, structuring, quality and valorization of your data and documentary holdings.">
+              Organisation, structuration, qualité et valorisation de vos données et de vos fonds documentaires.
+            </p>
+            <ul class="card-list">
+              <li data-en="Data governance and referencing">Gouvernance et référentiels de données</li>
+              <li data-en="Database design and cleaning">Conception et nettoyage de bases</li>
+              <li data-en="Documentation and knowledge capitalization">Documentation et capitalisation des savoirs</li>
+            </ul>
+          </article>
+
+          <!-- Expertise 2 -->
+          <article class="card reveal">
+            <span class="card-icon bg-nq-blue/10 text-nq-blue" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/>
+              </svg>
+            </span>
+            <h3 class="card-title" data-en="Geomatics and GIS">Géomatique et systèmes d'information géographique</h3>
+            <p class="card-text"
+               data-en="Spatial data collection, mapping and geographic analysis to understand and act on territories.">
+              Collecte de données spatiales, cartographie et analyse géographique pour comprendre et agir sur les territoires.
+            </p>
+            <ul class="card-list">
+              <li data-en="Cartography and spatial databases">Cartographie et bases de données spatiales</li>
+              <li data-en="Field data collection">Collecte de données sur le terrain</li>
+              <li data-en="Spatial analysis and mapping">Analyse spatiale et mise en carte</li>
+            </ul>
+          </article>
+
+          <!-- Expertise 3 -->
+          <article class="card reveal">
+            <span class="card-icon bg-nq-green/10 text-nq-green" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12.5" y="7" width="3" height="10"/><rect x="18" y="13" width="3" height="4"/>
+              </svg>
+            </span>
+            <h3 class="card-title" data-en="Data analysis and visualization">Analyse et visualisation de données</h3>
+            <p class="card-text"
+               data-en="Transformation of raw data into readable indicators, reports and decision-making dashboards.">
+              Transformation des données brutes en indicateurs lisibles, en rapports et en tableaux de bord décisionnels.
+            </p>
+            <ul class="card-list">
+              <li data-en="Indicators and KPIs">Indicateurs et tableaux de bord</li>
+              <li data-en="Statistical and sectoral analysis">Analyse statistique et sectorielle</li>
+              <li data-en="Reports and visual restitution">Rapports et restitutions visuelles</li>
+            </ul>
+          </article>
+
+          <!-- Expertise 4 -->
+          <article class="card reveal">
+            <span class="card-icon bg-nq-blue/10 text-nq-blue" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/><path d="M7 9h4M7 12h7"/>
+              </svg>
+            </span>
+            <h3 class="card-title" data-en="Digital transformation">Transformation numérique</h3>
+            <p class="card-text"
+               data-en="Digitalization of processes, deployment of suitable tools and support for teams through change.">
+              Digitalisation des processus, déploiement d'outils adaptés et accompagnement des équipes dans le changement.
+            </p>
+            <ul class="card-list">
+              <li data-en="Digitization of processes">Digitalisation des processus</li>
+              <li data-en="Support and user training">Assistance et formation des utilisateurs</li>
+              <li data-en="Technology choices">Choix des technologies</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. NOS SOLUTIONS
+    ========================================================== -->
+    <section id="solutions" class="section scroll-mt-24">
+      <div class="mx-auto max-w-container px-5 sm:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+          <!-- Introduction + visuel -->
+          <div class="reveal lg:sticky lg:top-28">
+            <p class="section-label" data-en="Our solutions">Nos solutions</p>
+            <h2 class="section-title" data-en="Practical solutions, built to last.">
+              Des solutions concrètes, pensées pour durer.
+            </h2>
+            <p class="section-text"
+               data-en="Each mission combines methodological rigor and appropriate technology. We deliver operational, documented and maintainable tools.">
+              Chaque mission allie rigueur méthodologique et technologie adaptée. Nous livrons des outils
+              opérationnels, documentés et maintenables.
+            </p>
+            <!-- Schéma d'architecture technique : collecte, serveur et données, applications -->
+            <div class="visual-card mt-8">
+              <img src="pics/architecture_technique_r.jpg"
+                   alt="Architecture technique : collecte et sources, serveur et données, applications et décision"
+                   class="w-full" width="1320" height="415" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Liste des prestations -->
+          <div class="space-y-4">
+
+            <article class="solution-row reveal">
+              <span class="solution-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="solution-title" data-en="Consulting and strategic support">Conseil et accompagnement stratégique</h3>
+                <p class="solution-text"
+                   data-en="Diagnosis, information system master plan, roadmaps and support for your projects.">
+                  Diagnostic, schéma directeur de l'information, feuilles de route et appui à la conduite de vos projets.
+                </p>
+              </div>
+            </article>
+
+            <article class="solution-row reveal">
+              <span class="solution-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 8.5h19M6 6.2h.01M8.5 6.2h.01"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="solution-title" data-en="Web applications">Applications web</h3>
+                <p class="solution-text"
+                   data-en="Custom applications: data portals, internal management tools, collection and reporting systems.">
+                  Applications sur mesure : portails de données, outils de gestion interne, systèmes de collecte et de reporting.
+                </p>
+              </div>
+            </article>
+
+            <article class="solution-row reveal">
+              <span class="solution-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 3 7.5 12 12l9-4.5L12 3z"/><path d="M3 12.5 12 17l9-4.5"/><path d="M3 17.5 12 22l9-4.5"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="solution-title" data-en="Digital platforms">Plateformes numériques</h3>
+                <p class="solution-text"
+                   data-en="Shared and secure platforms to centralize, exchange and valorize your organization's information.">
+                  Plateformes partagées et sécurisées pour centraliser, échanger et valoriser l'information de votre organisation.
+                </p>
+              </div>
+            </article>
+
+            <article class="solution-row reveal">
+              <span class="solution-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10.5c0 5.5-8 11-8 11s-8-5.5-8-11a8 8 0 1 1 16 0z"/><circle cx="12" cy="10.2" r="2.8"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="solution-title" data-en="Mapping tools">Outils cartographiques</h3>
+                <p class="solution-text"
+                   data-en="Interactive maps, web atlases and spatial analyses to make your territories readable.">
+                  Cartes interactives, atlas web et analyses spatiales pour rendre lisibles vos territoires.
+                </p>
+              </div>
+            </article>
+
+            <article class="solution-row reveal">
+              <span class="solution-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 14.5 10.5 11l2.5 2.5L17 9"/><path d="M7 17.5h10"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="solution-title" data-en="Decision-making dashboards">Tableaux de bord décisionnels</h3>
+                <p class="solution-text"
+                   data-en="Real-time indicators, visualizations and alerts to steer your activities with confidence.">
+                  Indicateurs en temps réel, visualisations et alertes pour piloter vos activités avec confiance.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. NOS SECTEURS D'INTERVENTION
+    ========================================================== -->
+    <section id="secteurs" class="section section-muted scroll-mt-24">
+      <div class="mx-auto max-w-container px-5 sm:px-8">
+
+        <div class="max-w-3xl reveal">
+          <p class="section-label" data-en="Our sectors">Nos secteurs d'intervention</p>
+          <h2 class="section-title" data-en="We work alongside organizations that act.">
+            Nous travaillons aux côtés des organisations qui agissent.
+          </h2>
+          <p class="section-text"
+             data-en="Based in Côte d'Ivoire, we support our clients in West Africa and internationally, across all sectors where information is a strategic asset.">
+            Basés en Côte d'Ivoire, nous accompagnons nos clients en Afrique de l'Ouest et à l'international,
+            dans tous les secteurs où l'information constitue un actif stratégique.
+          </p>
+        </div>
+
+        <!-- Clé visuelle NIVAQUINE -->
+        <figure class="visual-card mt-10 reveal">
+          <img src="pics/La donn%C3%A9e%20au%20service%20de%20l%E2%80%99Afrique-1.png"
+               alt="NIVAQUINE – La donnée au service de la décision : SIG et cartographie, gestion de données, analyse et appui à la décision, transformation digitale"
+               class="w-full" width="2056" height="765" loading="lazy">
+        </figure>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+
+          <div class="sector-card reveal">
+            <span class="sector-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/>
+              </svg>
+            </span>
+            <h3 class="sector-title" data-en="International and humanitarian organizations">Organisations internationales et humanitaires</h3>
+            <p class="sector-text" data-en="Programme monitoring, needs assessment, accountability to populations.">Suivi de programmes, évaluation des besoins, reddition de comptes aux populations.</p>
+          </div>
+
+          <div class="sector-card reveal">
+            <span class="sector-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 1 0-7.4 7.4L12 21.4l8.8-8.4a5.2 5.2 0 0 0 0-7.4z"/>
+              </svg>
+            </span>
+            <h3 class="sector-title" data-en="NGOs and associations">ONG et associations</h3>
+            <p class="sector-text" data-en="Impact monitoring, mapping of interventions, donor reporting.">Suivi d'impact, cartographie des interventions, reporting bailleurs.</p>
+          </div>
+
+          <div class="sector-card reveal">
+            <span class="sector-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9.5 21v-5h5v5"/><path d="M9.5 11.5h.01M14.5 11.5h.01"/>
+              </svg>
+            </span>
+            <h3 class="sector-title" data-en="Public administrations and local authorities">Administrations et collectivités territoriales</h3>
+            <p class="sector-text" data-en="Territorial planning, land management, public data dashboards.">Aménagement du territoire, gestion foncière, tableaux de bord des données publiques.</p>
+          </div>
+
+          <div class="sector-card reveal">
+            <span class="sector-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7"/><path d="M2.5 12.5h19"/>
+              </svg>
+            </span>
+            <h3 class="sector-title" data-en="Private companies">Entreprises privées</h3>
+            <p class="sector-text" data-en="Commercial optimization, logistics, dashboards and data-driven strategy.">Optimisation commerciale, logistique, tableaux de bord et stratégie pilotée par la donnée.</p>
+          </div>
+
+          <div class="sector-card reveal">
+            <span class="sector-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21c0-6 3.5-10.5 8-12 0 7-3.5 11.5-8 12z"/><path d="M12 21c0-4.5-2.6-7.9-6-9 0 5.2 2.6 8.6 6 9z"/><path d="M12 21v-3"/>
+              </svg>
+            </span>
+            <h3 class="sector-title" data-en="Development institutions and organizations">Institutions et organisations de développement</h3>
+            <p class="sector-text" data-en="Impact measurement, knowledge management, evidence-based advocacy.">Mesure de l'impact, gestion des connaissances, plaidoyer fondé sur les preuves.</p>
+          </div>
+
+          <div class="sector-card sector-card-cta reveal">
+            <img src="pics/sigle_blanc.png" alt="" aria-hidden="true"
+                 class="sector-cta-sigle" width="272" height="292" loading="lazy">
+            <h3 class="sector-title" data-en="Your sector is not listed?">Votre secteur n'est pas listé&nbsp;?</h3>
+            <p class="sector-text" data-en="Talk to us: our method adapts to any context where information matters.">Parlons-en&nbsp;: notre méthode s'adapte à tout contexte où l'information compte.</p>
+            <a href="#contact" class="inline-flex items-center gap-2 font-semibold text-sm text-white hover:gap-3 transition-all">
+              <span data-en="Contact us">Nous contacter</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. CONTACT
+    ========================================================== -->
+    <section id="contact" class="section scroll-mt-24">
+      <div class="mx-auto max-w-container px-5 sm:px-8">
+
+        <div class="grid lg:grid-cols-5 gap-10 lg:gap-14">
+
+          <!-- Présentation + coordonnées -->
+          <div class="lg:col-span-2 reveal">
+            <p class="section-label" data-en="Contact">Contact</p>
+            <h2 class="section-title" data-en="Let's talk about your project.">Parlons de votre projet.</h2>
+            <p class="section-text"
+               data-en="Tell us about your needs: we get back to you with an initial analysis of your situation and a tailored approach.">
+              Parlez-nous de vos besoins&nbsp;: nous revenons vers vous avec une première analyse de votre situation
+              et une approche adaptée.
+            </p>
+
+            <ul class="mt-8 space-y-5">
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label" data-en="Email">E-mail</span>
+                  <a href="mailto:nivaquine@yahoo.com" class="contact-value hover:text-nq-green">nivaquine@yahoo.com</a>
+                </span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label" data-en="Phone">Téléphone</span>
+                  <a href="tel:+2250105400371" class="contact-value hover:text-nq-green">+225 01 05 40 03 71</a>
+                </span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10.5c0 5.5-8 11-8 11s-8-5.5-8-11a8 8 0 1 1 16 0z"/><circle cx="12" cy="10.2" r="2.8"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label" data-en="Location">Localisation</span>
+                  <span class="contact-value">Abidjan, Côte d'Ivoire</span>
+                </span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label" data-en="Postal address">Adresse postale</span>
+                  <span class="contact-value">08 BP 2353 ABJ 08</span>
+                </span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.5 18.3 12 21"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label" data-en="Areas served">Zones d'intervention</span>
+                  <span class="contact-value" data-en="Côte d'Ivoire · West Africa · International">Côte d'Ivoire · Afrique de l'Ouest · International</span>
+                </span>
+              </li>
+
+              <li class="contact-item">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 8h14M5 12h9M5 16h6"/><circle cx="17.5" cy="16.5" r="3.5"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="contact-label" data-en="Languages">Langues</span>
+                  <span class="contact-value">Français · English</span>
+                </span>
+              </li>
+            </ul>
+
+            <!-- Liens professionnels (à renseigner) -->
+            <div class="mt-8 flex gap-3">
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                 class="social-link" aria-label="LinkedIn (à renseigner)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9.5h4v11H3v-11zm7 0h3.8v1.5h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76v5.69h-4v-5.05c0-1.2-.02-2.75-1.75-2.75-1.76 0-2.03 1.3-2.03 2.66v5.14h-4v-11z"/>
+                </svg>
+              </a>
+              <a href="mailto:nivaquine@yahoo.com" class="social-link" aria-label="Envoyer un e-mail">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Formulaire -->
+          <div class="lg:col-span-3 reveal">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="grid sm:grid-cols-2 gap-5">
+
+                <!-- Nom -->
+                <div class="form-field">
+                  <label for="nom"><span data-en="Full name">Nom complet</span> <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required
+                         data-en-placeholder="e.g. Aya Koné"
+                         placeholder="Ex. Aya Koné">
+                  <p class="form-error" id="nom-error" hidden data-en="Please enter your full name.">Veuillez saisir votre nom complet.</p>
+                </div>
+
+                <!-- E-mail -->
+                <div class="form-field">
+                  <label for="email"><span data-en="Email">E-mail</span> <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" autocomplete="email" required
+                         data-en-placeholder="name@organization.org"
+                         placeholder="nom@organisation.org">
+                  <p class="form-error" id="email-error" hidden data-en="Please enter a valid email address.">Veuillez saisir une adresse e-mail valide.</p>
+                </div>
+
+                <!-- Organisation -->
+                <div class="form-field">
+                  <label for="organisation" data-en="Organization">Organisation</label>
+                  <input type="text" id="organisation" name="organisation" autocomplete="organization"
+                         data-en-placeholder="Company, NGO, administration…"
+                         placeholder="Entreprise, ONG, administration…">
+                </div>
+
+                <!-- Sujet -->
+                <div class="form-field">
+                  <label for="sujet"><span data-en="Subject">Sujet</span> <span class="req" aria-hidden="true">*</span></label>
+                  <select id="sujet" name="sujet" required>
+                    <option value="" data-en="Choose a subject…">Choisissez un sujet…</option>
+                    <option value="gestion-information" data-en="Information management">Gestion de l'information</option>
+                    <option value="geomatique" data-en="Geomatics / GIS">Géomatique / SIG</option>
+                    <option value="analyse-donnees" data-en="Data analysis">Analyse de données</option>
+                    <option value="transformation-numerique" data-en="Digital transformation">Transformation numérique</option>
+                    <option value="autre" data-en="Other">Autre</option>
+                  </select>
+                  <p class="form-error" id="sujet-error" hidden data-en="Please select a subject.">Veuillez sélectionner un sujet.</p>
+                </div>
+
+                <!-- Message -->
+                <div class="form-field sm:col-span-2">
+                  <label for="message"><span data-en="Message">Message</span> <span class="req" aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" rows="5" required
+                            data-en-placeholder="Describe your needs, context and timeline…"
+                            placeholder="Décrivez vos besoins, votre contexte et vos échéances…"></textarea>
+                  <p class="form-error" id="message-error" hidden data-en="Please write a message of at least 10 characters.">Veuillez écrire un message d'au moins 10 caractères.</p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+                <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
+                  <span data-en="Send the message">Envoyer le message</span>
+                </button>
+                <p class="text-xs text-gray-500" data-en="* Required fields. Your information is only used to answer you.">
+                  * Champs obligatoires. Vos informations servent uniquement à vous répondre.
+                </p>
+              </div>
+
+              <!-- Retour du formulaire -->
+              <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       7. PIED DE PAGE
+  ========================================================== -->
+  <footer class="footer">
+    <div class="mx-auto max-w-container px-5 sm:px-8">
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pt-16 pb-12">
+
+        <!-- Marque (version recadrée, mention DIGITAL SOLUTIONS incluse) -->
+        <div>
+          <div class="flex items-center">
+            <img src="pics/logo_nivaquine_blanc_trim.png" alt="NIVAQUINE – Digital Solutions"
+                 class="h-10 sm:h-12 w-auto" width="721" height="210" loading="lazy">
+          </div>
+          <p class="mt-5 italic text-white/70 text-sm" data-en="“Data at the service of decision-making”">
+            « La donnée au service de la décision »
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <nav aria-label="Liens de pied de page">
+          <p class="footer-title" data-en="Navigation">Navigation</p>
+          <ul class="footer-links">
+            <li><a href="#accueil"    data-en="Home">Accueil</a></li>
+            <li><a href="#a-propos"   data-en="About">À propos</a></li>
+            <li><a href="#expertises" data-en="Expertise">Expertises</a></li>
+            <li><a href="#solutions"  data-en="Solutions">Solutions</a></li>
+            <li><a href="#secteurs"   data-en="Sectors">Secteurs</a></li>
+            <li><a href="#contact"    data-en="Contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Expertises -->
+        <div>
+          <p class="footer-title" data-en="Expertise">Expertises</p>
+          <ul class="footer-links">
+            <li data-en="Information management">Gestion de l'information</li>
+            <li data-en="Geomatics and GIS">Géomatique et SIG</li>
+            <li data-en="Data analysis and visualization">Analyse et visualisation de données</li>
+            <li data-en="Digital transformation">Transformation numérique</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="footer-title" data-en="Contact">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:nivaquine@yahoo.com">nivaquine@yahoo.com</a></li>
+            <li><a href="tel:+2250105400371">+225 01 05 40 03 71</a></li>
+            <li>08 BP 2353 ABJ 08</li>
+            <li>Abidjan, Côte d'Ivoire</li>
+            <li data-en="Côte d'Ivoire · West Africa · International">Côte d'Ivoire · Afrique de l'Ouest · International</li>
+            <li>Français · English</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> NIVAQUINE – Digital Solutions. <span data-en="All rights reserved.">Tous droits réservés.</span></p>
+        <a href="#accueil" class="hover:text-white transition" data-en="Back to top">Retour en haut ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

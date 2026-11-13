@@ -1,0 +1,18 @@
+# Fichiers temporaires / scripts de contrôle
+_preview.html
+_prev.js
+_edit.js
+_gen-preview.js
+_logos.html
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Dépendances éventuelles
+node_modules/
