@@ -7,7 +7,7 @@
    3. Navigation active selon la section affichée
    4. Animations d'apparition au défilement
    5. Bascule de langue FR / EN
-   6. Validation du formulaire de contact
+   6. Validation du formulaire de contact (ouverture du logiciel de messagerie)
    7. Année du copyright
    ========================================================= */
 
@@ -224,29 +224,36 @@
       return;
     }
 
-    // Envoi : brancher ici votre service (Formulaire, API, e-mail…)
-    // Exemple : fetch('/api/contact', { method: 'POST', body: new FormData(form) })
-    submitBtn.classList.add('is-loading');
+    // Ouverture du logiciel de messagerie du visiteur avec un message pré-rempli
+    const get = function (name) { return (form.elements[name].value || '').trim(); };
+    const select = form.elements['sujet'];
+    const subjectLabel = select.options[select.selectedIndex].text;
+    const lang = document.documentElement.lang;
 
+    const lines = [
+      (lang === 'en' ? 'Name' : 'Nom') + ' : ' + get('nom'),
+      'E-mail : ' + get('email')
+    ];
+    if (get('organisation')) {
+      lines.push((lang === 'en' ? 'Organization' : 'Organisation') + ' : ' + get('organisation'));
+    }
+    lines.push('', subjectLabel + ' :', '', get('message'));
+
+    const mailto = 'mailto:nivaquine@yahoo.com'
+      + '?subject=' + encodeURIComponent('[nivaquine.com] ' + subjectLabel)
+      + '&body=' + encodeURIComponent(lines.join('\r\n'));
+
+    submitBtn.classList.add('is-loading');
     window.setTimeout(function () {
       submitBtn.classList.remove('is-loading');
-      const lang = document.documentElement.lang;
-
       showStatus(
         lang === 'en'
-          ? 'Thank you! Your message has been sent. We will get back to you shortly.'
-          : 'Merci ! Votre message a bien été envoyé. Nous revenons vers vous très vite.',
+          ? 'Your email application is opening with your message ready to send. If nothing happens, write to us at nivaquine@yahoo.com.'
+          : 'Votre application de messagerie s’ouvre avec votre message prêt à être envoyé. Si rien ne s’ouvre, écrivez-nous à nivaquine@yahoo.com.',
         true
       );
-      form.reset();
-      formTouched = false;
-      fields.forEach(function (field) {
-        field.classList.remove('is-invalid');
-        field.removeAttribute('aria-invalid');
-        const error = document.getElementById(field.name + '-error');
-        if (error) error.hidden = true;
-      });
-    }, 700);
+      window.location.href = mailto;
+    }, 300);
   });
 
   /* ---------- 7. Année du copyright ---------- */

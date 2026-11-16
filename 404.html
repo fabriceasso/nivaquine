@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Page introuvable – 404 | NIVAQUINE – Digital Solutions</title>
+  <meta name="description" content="La page demandée n'existe pas. Revenez à l'accueil du site NIVAQUINE – Digital Solutions.">
+  <link rel="icon" type="image/png" href="pics/sigle_noir.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      background: var(--nq-mist, #F4F6F5);
+      color: var(--nq-ink, #111820);
+      font-family: Inter, system-ui, sans-serif;
+      text-align: center;
+    }
+    .n404 { max-width: 34rem; }
+    .n404 img { width: 64px; height: auto; margin-bottom: 1.5rem; }
+    .n404 .code {
+      font-family: Sora, Inter, sans-serif;
+      font-size: clamp(4rem, 18vw, 7rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 0;
+      color: var(--nq-green, #079A45);
+      letter-spacing: -.04em;
+    }
+    .n404 h1 {
+      font-family: Sora, Inter, sans-serif;
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      font-weight: 700;
+      margin: .75rem 0 .5rem;
+    }
+    .n404 p { margin: 0 0 2rem; color: #4b5563; line-height: 1.6; }
+    .n404 .actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+    .n404 .btn { text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="n404">
+    <img src="pics/sigle_noir.png" alt="" aria-hidden="true">
+    <p class="code">404</p>
+    <h1>Cette page n'existe pas / This page does not exist</h1>
+    <p>
+      L'adresse demandée a peut-être changé ou n'est plus disponible.
+      <br>The address you requested may have moved or is no longer available.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary btn-lg" href="/" title="Retour à l'accueil">← Retour à l'accueil</a>
+      <a class="btn btn-ghost btn-lg" href="mailto:nivaquine@yahoo.com">Nous contacter</a>
+    </div>
+  </main>
+</body>
+</html>

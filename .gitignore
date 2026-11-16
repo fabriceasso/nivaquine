@@ -16,3 +16,7 @@ desktop.ini
 
 # Dépendances éventuelles
 node_modules/
+
+# Mise en ligne (dossier de publication généré)
+_deploy/
+.wrangler/
