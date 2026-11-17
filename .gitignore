@@ -20,3 +20,8 @@ node_modules/
 # Mise en ligne (dossier de publication généré)
 _deploy/
 .wrangler/
+
+# Secrets (token API Cloudflare)
+.env
+
+cf.env
