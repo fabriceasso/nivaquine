@@ -15,7 +15,7 @@ Site vitrine du cabinet **NIVAQUINE – Digital Solutions** — conseil en gesti
 | Type | Site statique (HTML / CSS / JS) |
 | CSS | Tailwind CSS (CDN) + feuille personnalisée `styles.css` |
 | Polices | Inter (texte) · Sora (titres) |
-| Hébergement | [Cloudflare Pages](https://pages.cloudflare.com) |
+| Hébergement | [Cloudflare Pages](https://pages.cloudflare.com) — connecté au dépôt GitHub (déploiement à chaque `push`) |
 | Domaine | `nivaquine.com` (zone Cloudflare) |
 
 ## Structure
@@ -29,7 +29,7 @@ Site vitrine du cabinet **NIVAQUINE – Digital Solutions** — conseil en gesti
 ├── robots.txt        # Règles d'exploration + lien vers le sitemap
 ├── sitemap.xml       # Plan du site
 ├── pics/             # Images du site
-├── deploy.ps1        # Script de mise en ligne
+├── deploy.ps1        # Script de mise en ligne (commit + push)
 └── _deploy/          # Dossier de publication généré (ignoré par Git)
 ```
 
@@ -43,14 +43,31 @@ npx serve .
 
 ## Mise en ligne
 
-Prérequis (une seule fois) : `npx wrangler login`
+Le projet **Cloudflare Pages est connecté au dépôt GitHub** : tout `push` sur la branche
+`main` déclenche automatiquement un build et un déploiement sur `nivaquine.com`.
 
 ```powershell
-.\deploy.ps1
+.\deploy.ps1                # committe les modifications + push
+.\deploy.ps1 "Mon message"  # idem avec un message personnalisé
+.\deploy.ps1 -NoCommit      # push seulement
 ```
 
-Le script reconstruit le dossier `_deploy/` (sans les images inutilisées) puis exécute
-`wrangler pages deploy _deploy --project-name nivaquine --branch main`.
+Équivalent manuel :
+
+```powershell
+git add -A
+git commit -m "Ma modification"
+git push
+```
+
+**Suivre un déploiement :**
+
+```powershell
+npx wrangler pages deployment list --project-name nivaquine
+```
+
+> ℹ️ Le projet a été recréé en mode *Git-connected* : `wrangler pages deploy` (déploiement
+> direct) ne s'applique plus — le dépôt Git est la seule source de vérité.
 
 ### Domaine personnalisé
 

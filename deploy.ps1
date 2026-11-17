@@ -1,53 +1,48 @@
 <#
-  Mise en ligne du site NIVAQUINE sur Cloudflare Pages
+  Mise en ligne du site NIVAQUINE
   -----------------------------------------------------
-  Usage :  .\deploy.ps1
-  Prérequis : npx wrangler login (une seule fois)
+  Le projet Cloudflare Pages est connecté au dépôt GitHub :
+  tout push sur la branche `main` déclenche automatiquement
+  un build et un déploiement sur nivaquine.com.
+
+  Usage :
+    .\deploy.ps1                    # committe tout + push (message par défaut)
+    .\deploy.ps1 "Mon message"      # committe tout + push avec un message
+    .\deploy.ps1 -NoCommit          # push seulement (si déjà committé)
 #>
 
+param(
+  [string]$Message = 'Mise a jour du site',
+  [switch]$NoCommit
+)
+
 $ErrorActionPreference = 'Stop'
+Set-Location $PSScriptRoot
 
-$project = 'nivaquine'
-$stage   = '_deploy'
-$root    = $PSScriptRoot
-
-# 1. Fichiers et dossiers publiés
-$assets = @(
-  'index.html',
-  '404.html',
-  'robots.txt',
-  'sitemap.xml',
-  'styles.css',
-  'script.js',
-  'pics'
-)
-
-# Images inutilisées par le site (exclues de la publication)
-$skipPatterns = @(
-  'Gemini_Generated_Image_*.jfif',
-  'Cartographie futuriste*',
-  'logo_nivaquine_blanc.png',
-  'logo_nivaquine_noir.png',
-  '1x'
-)
-
-# 2. Reconstruction du dossier de publication
-if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
-New-Item -ItemType Directory -Path $stage | Out-Null
-
-foreach ($a in $assets) {
-  $src = Join-Path $root $a
-  if (-not (Test-Path $src)) { throw "Fichier introuvable : $a" }
-  Copy-Item $src (Join-Path $stage $a) -Recurse
+# 1. État du dépôt
+$branch = git rev-parse --abbrev-ref HEAD
+if ($branch -ne 'main') {
+  Write-Warning "Vous etes sur la branche '$branch' (production = main)."
 }
 
-foreach ($pattern in $skipPatterns) {
-  Get-ChildItem -Path (Join-Path $stage 'pics') -Filter $pattern -File -ErrorAction SilentlyContinue |
-    Remove-Item -Force
+$dirty = git status --porcelain
+if ($dirty) {
+  if ($NoCommit) {
+    Write-Error "Modifications non committees en attente :`n$dirty`nLancez sans -NoCommit."
+  }
+  Write-Host "Commit des modifications..." -ForegroundColor Cyan
+  git add -A
+  git commit -m $Message
+} elseif (-not $NoCommit) {
+  Write-Host "Rien a committer." -ForegroundColor DarkGray
 }
 
-$size = [math]::Round(((Get-ChildItem $stage -Recurse -File | Measure-Object Length -Sum).Sum / 1MB), 2)
-Write-Host "Dossier de publication pret : $stage ($size Mo)" -ForegroundColor Cyan
+# 2. Push → déploiement automatique Cloudflare Pages
+Write-Host "Push vers GitHub (deploiement automatique)..." -ForegroundColor Cyan
+git push
 
-# 3. Déploiement sur Cloudflare Pages
-npx wrangler pages deploy $stage --project-name $project --branch main
+Write-Host ""
+Write-Host "Deploiement declenche." -ForegroundColor Green
+Write-Host "Suivi en direct : https://dash.cloudflare.com/?to=/:account/workers-and-pages" -ForegroundColor DarkGray
+Write-Host "  -> projet 'nivaquine' -> Build & deployments" -ForegroundColor DarkGray
+Write-Host "  ou : npx wrangler pages deployment list --project-name nivaquine" -ForegroundColor DarkGray
