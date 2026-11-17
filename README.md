@@ -66,6 +66,15 @@ git push
 npx wrangler pages deployment list --project-name nivaquine
 ```
 
+**Étape de build** — Cloudflare ne publie pas le dépôt tel quel : une commande recopie
+uniquement les fichiers du site dans `dist/` (dossier publié), ce qui exclut les images
+inutilisées et les fichiers de travail (`README.md`, `deploy.ps1`, `.gitignore`…) :
+
+```bash
+mkdir -p dist && cp index.html 404.html robots.txt sitemap.xml styles.css script.js dist/ \
+  && cp -r pics dist/pics && rm -rf dist/pics/Gemini_* "dist/pics/Cartographie"* dist/pics/1x
+```
+
 > ℹ️ Le projet a été recréé en mode *Git-connected* : `wrangler pages deploy` (déploiement
 > direct) ne s'applique plus — le dépôt Git est la seule source de vérité.
 
